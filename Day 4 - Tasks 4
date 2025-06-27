@@ -1,0 +1,44 @@
+Create table employees(
+emp_id int PRIMARY KEY,
+emp_name varchar(100),
+emp_dept varchar(100),
+emp_salary int, 
+doj date
+);
+
+
+
+insert into employees (emp_id, emp_name, emp_dept, emp_salary, doj) values
+(1, 'Anita Sharma', 'HR', 50000, '2021-03-15'),
+(2, 'Ravi Kumar', 'IT', 75000, '2020-07-01'),
+(3, 'Meena Iyer', 'Finance', 62000, '2019-11-20'),
+(4, 'Suresh Raina', 'IT', 80000, '2022-01-10'),
+(5, 'Priya Verma', 'Marketing', 55000, '2023-05-05'),
+(6, 'Arjun Patel', 'Sales', 48000, '2021-09-30'),
+(7, 'Divya Nair', 'HR', 51000, '2020-02-17');
+
+
+select * from employees;
+
+select count(*) from employees;
+
+select avg(emp_salary) as Salary from 
+employees;
+
+select emp_dept, count(*) as num_employees
+from employees
+group by emp_dept;
+
+select emp_dept, sum(emp_salary) as total_salary
+from employees
+group by emp_dept
+having sum(emp_salary) > 100000;
+
+select  emp_dept, max(emp_salary) as High_salary
+from employees
+group by emp_dept;
+
+select emp_dept, sum(emp_salary) as total_salary
+from employees
+group by emp_dept
+order by total_salary;
